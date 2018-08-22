@@ -3,6 +3,7 @@
   position: fixed;
   color: #fff;
   left: -300px;
+  margin-left: -5px;
   top: 50%;
   margin-top: -100px;
   z-index: 9;
@@ -16,7 +17,7 @@
   }
 }
 .loaded .article-body >.fullpage-menu {
-  left: 20px;
+  left: 15px;
 }
 .article-body >.fullpage-menu,
 .mod-mobilemenu .fullpage-menu {
@@ -57,6 +58,7 @@
 
 @include media-breakpoint-up(md) {
   .article-body >.fullpage-menu {
+    margin-left: 0;
     a {
       margin: 10px 0;
     }

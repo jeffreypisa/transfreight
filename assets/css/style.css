@@ -6369,7 +6369,8 @@ h1 {
 
 h2 {
   font-size: 26px;
-  line-height: 34px; }
+  line-height: 34px;
+  margin-bottom: 20px; }
 
 h3 {
   font-size: 24px;
@@ -6394,7 +6395,8 @@ p {
     margin-bottom: 30px; }
   h2 {
     font-size: 34px;
-    line-height: 40px; }
+    line-height: 40px;
+    margin-bottom: 30px; }
   h3 {
     font-size: 26px;
     line-height: 31px; }
@@ -6409,7 +6411,8 @@ p {
     margin-bottom: 40x; }
   h2 {
     font-size: 38px;
-    line-height: 48px; }
+    line-height: 48px;
+    margin-bottom: 40px; }
   h3 {
     font-size: 29px;
     line-height: 34px; }
@@ -6639,7 +6642,10 @@ a.card[href] {
 
 .modal {
   /* Modal mask: */
-  background-image: linear-gradient(-180deg, rgba(28, 61, 92, 0.8), rgba(0, 131, 255, 0.8)); }
+  background-image: linear-gradient(-180deg, rgba(28, 61, 92, 0.8), rgba(0, 131, 255, 0.8));
+  overflow-y: scroll;
+  /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch; }
   .modal .modal-dialog {
     background: #FFFFFF;
     box-shadow: 0 20px 100px 0 rgba(28, 61, 92, 0.8);
@@ -6729,7 +6735,7 @@ a.card[href] {
     line-height: 26px; } }
 
 .footer {
-  padding: 60px 0;
+  padding: 30px 0;
   background: #0a334f !important;
   color: #fff;
   text-align: left !important; }
@@ -6744,9 +6750,6 @@ a.card[href] {
   .footer nav ul {
     list-style-type: none;
     padding: 0; }
-    .footer nav ul li {
-      padding-left: 30px;
-      text-indent: -15px; }
   .footer nav a, .footer nav a[href] {
     color: #fff;
     position: relative;
@@ -6755,14 +6758,13 @@ a.card[href] {
       display: none; }
     .footer nav a div, .footer nav a[href] div {
       display: inline-block;
-      width: 100%;
-      margin-left: 15px; }
+      width: 100%; }
     .footer nav a:after, .footer nav a[href]:after {
       position: absolute;
       top: 0;
-      left: 0;
+      left: -15px;
       content: '\f054';
-      font-family: "Font Awesome 5 Free";
+      font-family: "Font Awesome 5 Pro";
       color: #fff;
       font-size: 12px;
       line-height: 20px; }
@@ -6774,6 +6776,10 @@ a.card[href] {
   .footer .footerblock {
     margin-bottom: 30px;
     text-align: left; }
+    .footer .footerblock nav {
+      padding-left: 15px; }
+    .footer .footerblock ul {
+      margin: 0; }
   .footer .followus a {
     display: block;
     font-size: 25px;
@@ -6790,6 +6796,14 @@ a.card[href] {
       color: #EF7C00; }
       .footer .subfooter a:hover {
         text-decoration: underline; }
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 34px 0; } }
+
+@media (min-width: 992px) {
+  .footer {
+    padding: 60px 0; } }
 
 body {
   padding-top: 40px; }
@@ -7215,6 +7229,7 @@ body.opensidemenu .mod-mobilemenu {
   position: fixed;
   color: #fff;
   left: -300px;
+  margin-left: -5px;
   top: 50%;
   margin-top: -100px;
   z-index: 9;
@@ -7227,7 +7242,7 @@ body.opensidemenu .mod-mobilemenu {
     font-size: 15px; }
 
 .loaded .article-body > .fullpage-menu {
-  left: 20px; }
+  left: 15px; }
 
 .article-body > .fullpage-menu a,
 .mod-mobilemenu .fullpage-menu a {
@@ -7268,8 +7283,10 @@ body.opensidemenu .mod-mobilemenu {
       color: #fff; }
 
 @media (min-width: 768px) {
-  .article-body > .fullpage-menu a {
-    margin: 10px 0; }
+  .article-body > .fullpage-menu {
+    margin-left: 0; }
+    .article-body > .fullpage-menu a {
+      margin: 10px 0; }
   .article-body > .fullpage-menu a {
     transition: background 0.4s ease-in-out, border 0.4s ease-in-out;
     border-radius: 100px; }

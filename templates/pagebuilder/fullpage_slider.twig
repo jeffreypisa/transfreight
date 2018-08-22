@@ -90,7 +90,8 @@
     		parallax: true,
     		easingcss3: 'cubic-bezier(0.420, 0.000, 0.580, 1.000)',
 				scrollingSpeed:1000,
-    		parallaxKey: 'dHJhbnNmcmVpZ2h0LnRzdF9LcHhjR0Z5WVd4c1lYZz1RUWY=',
+				normalScrollElements: '.mod-mobilemenu, .modal, .modal-dialog',
+    		parallaxKey: 'dHJhbnNmcmVpZ2h0LmVtb25rcy5ubF9iQ3ZjR0Z5WVd4c1lYZz1ZcHg=',
     		afterSlideLoad: function( section, origin, destination, direction){
       		$('.section').find(".menu-links").removeClass('active');
       		$('.section.active').find(".menu-links[data-slide='" + destination.index + "']").addClass('active');
@@ -99,7 +100,7 @@
         	if ($('.section.active').hasClass('fp-auto-height')) {
           	$('.article-body > .fullpage-menu').css('left', '-200px');
           } else {
-          	$('.article-body > .fullpage-menu').css('left', '20px');
+          	$('.article-body > .fullpage-menu').css('left', '15px');
           }
       	}
     	});

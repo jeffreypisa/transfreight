@@ -336,16 +336,6 @@
 		"sC": 1,
 		"tS": 0
 		},
-	"\/assets\/js\/scripts\/fullpage.js": {
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "\/assets\/js\/scripts\/fullpage-min.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
 	"\/assets\/js\/scripts\/header.js": {
 		"ft": 64,
 		"ma": 0,
@@ -103895,26 +103885,20 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/fullpage.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/mobilemenu.js",
 			"position": 5,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/mobilemenu.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/header.js",
 			"position": 6,
 			"type": 1
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/header.js",
-			"position": 7,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/assets\/js\/scripts\/eqheights.js",
-			"position": 8,
+			"position": 7,
 			"type": 1
 			}
 		]
