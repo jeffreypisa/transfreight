@@ -1,0 +1,27 @@
+{% for item in post.get_field('blok') %}
+  {% if item.acf_fc_layout == 'tekst' %}
+    <div class="tekstblok">
+      <div class="row">
+        <div class="offset-md-2 col-md-16 offset-xl-4 col-xl-12">
+          {{ item.tekst }}
+        </div>
+      </div>
+    </div>
+  {% elseif item.acf_fc_layout == 'uitgelicht_groot' %}
+    <div class="uitgelicht_groot">
+      <div class="row">
+        <div class="offset-md-1 col-md-18 offset-xl-2 col-xl-16">
+          <h2> {{ item.tekst }} </h2>
+        </div>
+      </div>
+    </div>
+  {% elseif item.acf_fc_layout == 'uitgelicht_klein' %}
+    <div class="uitgelicht_klein">
+      <div class="row">
+        <div class="col-md-10 offset-md-5 offset-xl-6 col-xl-8">
+          <h3> {{ item.tekst }} </h3>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endfor %}

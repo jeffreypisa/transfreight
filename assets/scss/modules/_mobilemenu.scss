@@ -1,0 +1,119 @@
+body .mod-mobilemenu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  opacity: 0;
+  padding: 7px 20px 20px;
+  transition: opacity 0.3s ease-in-out, top 0.9s ease-in-out, bottom 1s ease-in-out;
+  background-image: linear-gradient(-269deg, rgba(28, 61, 92, 0.8), rgba(0, 131, 255, 0.8));
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
+  text-align: right;
+  transform: translateZ(-1px);
+  .closemenu {
+    margin-bottom: 30px;
+    display: block;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    img {
+      width: 20px;
+      height: 17px;
+    }
+  }
+  .fullpage-menu {
+    margin-bottom: 30px;
+    a {
+      margin: 8px 0;
+      display: inline-block;
+      padding: 0 30px 0 15px;
+      font-size: 18px;
+      height: 36px;
+      line-height: 36px;
+      div {
+        display: block;
+      }
+      span {
+        left: auto;
+        right: 10px;
+      }
+      &.active {
+        background: rgba(28,61,92,0.60);
+        border: 1px solid $blue;
+        border-radius: 100px; 
+        span {
+          left: auto;
+          right: 10px;
+        }
+      }
+      &:hover {
+        span {
+          left: auto;
+          right: 8px;
+        }
+      }
+    }
+  }
+  .menucontent {
+    margin-right: -400px;
+    transition: 0.6s ease-in-out ;
+    ul {
+      list-style-type: none;
+      margin-right: 32px;
+      &.menu, &.footermenu {
+        margin-bottom: 0;
+      }
+      li {
+        a {
+          margin: 10px 0;
+          font-size: 18px;
+          display: inline-block;
+          &:hover {
+            color: $orange;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    a {
+      color: #fff;
+    }
+  }
+}
+.sitewrapper {
+  -webkit-transition: right 0.2s ease-in;
+  transition: all 0.2s ease-in-out;
+}
+body.opensidemenu {
+  .mod-mobilemenu {
+    opacity: 1;
+    top: 0;
+    bottom: 0;
+    transition: 0.3s ease-in-out;
+    transform: translateZ(100px);
+    z-index: 100;
+    .closemenu {
+      opacity: 1;
+    }
+    .menucontent {
+      margin-right: 0;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  body .mod-mobilemenu {
+    padding: 22px 30px 30px;
+    .closemenu {
+      margin-bottom: 40px;
+      img {
+        width: 26px;
+        height: 23px;
+      }
+    }
+  }
+}

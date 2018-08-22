@@ -1,0 +1,34 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" {{site.language_attributes}}> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" {{site.language_attributes}}> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{site.language_attributes}}> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" {{site.language_attributes}}> <!--<![endif]-->
+<head>
+    <meta charset="{{site.charset}}" />
+      <title>   
+        {% if wp_title %}
+          {{ wp_title }} - {{ site.name }}
+        {% else %}
+          {{ site.name }} 
+        {% endif %}
+      </title>
+    <meta name="description" content="{{site.description}}">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="pingback" href="{{site.pingback_url}}" />
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ theme.link }}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ theme.link }}/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ theme.link }}/favicon-16x16.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="manifest" href="{{ theme.link }}/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://use.typekit.net/uvu7mun.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <meta name="theme-color" content="#ffffff">
+    {{function('wp_head')}}

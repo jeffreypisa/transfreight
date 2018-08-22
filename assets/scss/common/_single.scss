@@ -1,0 +1,67 @@
+.single {
+  h1 {
+  }
+  .date {
+    margin-top: 0;
+    font-size: 40px;
+    text-align: center;
+    color: $green;
+    margin-bottom: 30px;
+    line-height: 50px;
+    font-weight: 600;
+  }
+  .date.small {
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 50px;
+    .published {
+      display: block;
+      font-weight: 600;
+    }
+    .by {
+      font-weight: 400;
+      display: inline-block;
+    }
+  }
+  .uitgelicht_groot,
+  .uitgelicht_klein {
+    h2 {
+      margin-top: 20px;
+    }
+    h2, h3 {
+      margin: 15px 0 30px;
+      font-style: italic;
+      color: $green;
+      font-weight: 400;
+      font-size: 25px;
+      line-height: 40px;
+    }
+  }
+  .btn-zaalhuur {
+    margin-top: -20px;
+    margin-bottom: 60px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .single {
+    .date {
+      margin-top: -30px;
+    }
+    .btn-zaalhuur {
+      margin-top: 0;
+      margin-bottom: -28px;
+    }
+    .uitgelicht_groot,
+    .uitgelicht_klein {
+      h2 {
+        font-size: 50px;
+        line-height: 60px;
+      }
+      h3 {
+        font-size: 30px;
+        line-height: 38px;
+      }
+    }
+  }
+}

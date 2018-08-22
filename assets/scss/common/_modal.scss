@@ -1,0 +1,54 @@
+.modal {
+  /* Modal mask: */
+  background-image: linear-gradient(-180deg, rgba(28, 61, 92, 0.8), rgba(0, 131, 255, 0.8));
+  .modal-dialog {
+    background: #FFFFFF;
+    box-shadow: 0 20px 100px 0 rgba(28,61,92,0.80);
+    border-radius: 10px;
+    border: 0;
+    overflow: hidden;
+    margin: 20px;
+    .modal-content {
+      border: 0;
+      .modal-header {
+        background-image: linear-gradient(0deg, #F8B300 0%, #EF7C00 74%);
+        h5 {
+          font-family: "CFF Starline Wide";
+          font-size: 34px;
+          line-height: 44px;
+          color: #fff;
+          display: block;
+          text-align: center;
+          width: 100%;
+        }    
+      }
+      .modal-body {
+        padding: 20px;
+        .field-wrap input[type=button] {
+          font-family: 'CFF Starline Wide';
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .modal {
+    .modal-dialog {
+      margin: 20px auto;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .modal {
+    .modal-dialog {
+      margin: 82px auto;
+      .modal-content {
+        .modal-body {
+          padding: 40px;
+        }
+      }
+    }
+  }
+}

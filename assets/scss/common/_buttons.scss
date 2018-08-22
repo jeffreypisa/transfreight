@@ -1,0 +1,59 @@
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+.btn, .field-wrap input[type=button] {
+  height: 24px;
+  border-radius: 100px;
+  border: 0;
+  padding: 0 14px;
+  letter-spacing: 1px;
+  font-size: 12px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+.btn-primary, .field-wrap input[type=button] {
+  background: $orange;
+  background-image: linear-gradient(90deg, #F8B300 0%, #EF7C00 100%);
+  color: #fff;
+  background-size: 800% auto;
+  background-position: right center;
+  transition: background-size 0.6s ease-in-out;
+  &:hover {
+    color: #fff;
+    background-size: 100% auto;
+    background-position: right center;
+    background-image: linear-gradient(90deg, #F8B300 0%, #EF7C00 100%);
+    transition: 0.3s ease-in-out;
+  }
+  &:focus, &:active, &:target, &:not(:disabled):not(.disabled):active {
+    color: #fff;
+    background: $orange;
+    background-image: linear-gradient(90deg, #F8B300 0%, #EF7C00 100%);
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .btn, .field-wrap input[type=button] {
+    height: 32px;
+    line-height: 32px;
+    font-size: 13px;
+    padding: 0 20px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .btn, .field-wrap input[type=button] {
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+  }
+}

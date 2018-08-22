@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="22px" viewBox="0 0 25 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Menu/Hamburger/Close</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="z" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HOME-TAB-menu" transform="translate(-714.000000, -24.000000)" fill="#FFFFFF">
+            <g id="Menu/Hamburger/Close" transform="translate(714.000000, 23.000000)">
+                <rect id="Rectangle" transform="translate(18.134672, 16.464379) rotate(-45.000000) translate(-18.134672, -16.464379) " x="10.9846717" y="14.5232026" width="14.3" height="3.88235294" rx="1.94117647"></rect>
+                <rect id="Rectangle" transform="translate(18.594291, 7.863095) rotate(45.000000) translate(-18.594291, -7.863095) " x="10.7942911" y="5.92191876" width="15.6" height="3.88235294" rx="1.94117647"></rect>
+                <rect id="Rectangle" x="5.68434189e-14" y="10.0588235" width="24.7" height="3.88235294" rx="1.94117647"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

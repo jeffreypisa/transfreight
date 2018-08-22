@@ -1,0 +1,101 @@
+body {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: $darkblue;
+  -webkit-font-smoothing: antialiased;
+}
+textarea:focus,
+input:focus,
+*:focus {
+  outline: none;
+}
+
+h1.light,
+h2.light,
+h3.light,
+h4.light,
+h5.light {
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 32px;
+  line-height: 38px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 26px;
+  line-height: 34px;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 32px;
+  margin-bottom: 30px;
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 24px;  
+  margin-bottom: 24px;
+}
+
+p + h2, p + h3, p + h4 {
+  margin-top: 30px;
+}
+p {
+  color: $grey;
+}
+
+@include media-breakpoint-up(md) {
+  h1 {
+    font-size: 46px;
+    line-height: 50px;
+    margin-bottom: 30px;
+  }
+  
+  h2 {
+    font-size: 34px;
+    line-height: 40px;
+  }
+  
+  h3 {
+    font-size: 26px;
+    line-height: 31px;  
+  }
+  
+  h4 {
+    font-size: 20px;
+    line-height: 26px;  
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  h1 {
+    font-size: 50px;
+    line-height: 54px;
+    margin-bottom: 40x;
+  }
+  
+  h2 {
+    font-size: 38px;
+    line-height: 48px;
+  }
+  
+  h3 {
+    font-size: 29px;
+    line-height: 34px;  
+  }
+  
+  h4 {
+    font-size: 22px;
+    line-height: 28px;  
+  }
+}
+
+@include media-breakpoint-up(xl) {
+
+}

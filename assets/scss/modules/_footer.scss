@@ -1,0 +1,88 @@
+.footer {
+  padding: 60px 0;
+  background: $darkblue !important;
+  color: #fff;
+  text-align: left !important;
+  h5 {
+    color: $blue;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  p {
+    color: #fff;
+  }
+  nav {
+    ul {
+      list-style-type: none;
+      padding: 0;
+      li {
+        padding-left: 30px;
+        text-indent: -15px;
+      }
+    }
+    a, a[href] {
+      color: #fff;
+      position: relative;
+      transition: 0.2s ease-in-out;
+      span {
+        display: none;
+      }
+      div {
+        display: inline-block;
+        width: 100%;
+        margin-left: 15px;
+      }
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '\f054';
+        font-family: "Font Awesome 5 Free";
+        color: #fff;
+        font-size: 12px;
+        line-height: 20px;
+      }
+      &:hover {
+        color: $orange;
+        text-decoration: none;
+        &:after {
+        color: $orange;
+        }
+      }
+    }
+  }
+  .footerblock {
+    margin-bottom: 30px;
+    text-align: left;
+  }
+  .followus {
+    a {
+      display: block;
+      font-size: 25px;
+      color: #fff;
+      float: left;
+      margin: 0 15px 15px 0;
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+  .subfooter {
+    font-size: 12px;
+    line-height: 20px;
+    color: $blue;
+    a {
+      color: $orange;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+@include media-breakpoint-up(md) {
+  footer {
+
+  }
+}

@@ -1,0 +1,34 @@
+/* Preloader */
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Rectangle 8: */
+background-image: linear-gradient(-135deg, #FFFFFF 0%, #ccc 100%);
+  /* change if the mask should have another color then white */
+  z-index: 9999;
+  /* makes sure it stays on top */
+}
+
+
+
+#status {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 52px;
+    margin:-26px 0 0 -20px;
+    -webkit-animation:spin 2s linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+    img {
+      width: 100%;
+    }
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

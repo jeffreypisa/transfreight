@@ -1,0 +1,35 @@
+/*!
+Theme Name: De Hallen
+Theme URI: https://www.dehallen.nl
+Author: Emonks
+Author URI: https://www.emonks.nl
+Description: Thema ontwikkeld door emonks.nl
+Version: 1.1
+Text Domain: myproject
+!*/
+
+@import 'common/variables';
+
+@import '../../bower_components/bootstrap/scss/bootstrap.scss';
+@import '../../bower_components/fullpage.js/dist/fullpage.min.css';
+
+@import '../fonts/fonts';
+
+@import 'common/base';
+@import 'common/single';
+@import 'common/buttons';
+@import 'common/section';
+@import 'common/cards';
+@import 'common/modal';
+@import 'common/form';
+@import 'common/dropdownmenu';
+
+@import 'modules/footer';
+@import 'modules/header';
+@import 'modules/pageheader';
+@import 'modules/mobilemenu';
+@import 'modules/fullpage';
+@import 'modules/fullpage-menu';
+@import 'modules/fullpage-animation';
+@import 'modules/fullpage-horizontal-menu';
+@import 'modules/socialmedia-sidebar.scss';

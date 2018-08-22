@@ -1,0 +1,141 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+    <div class="mod-greenbar">
+	    <div class="container"> 
+	      {% if posttype == 'locaties' %} 
+	        <a href="{{ posttype_archive }}" class="float-left"><i class="fas fa-arrow-circle-left"></i> Bekijk lijst</a>
+          {% if ismobile == 'true' %} {% else %}
+            <a href="{{ site.url }}/aanbodkaart" class="float-right">Bekijk kaart <i class="fas fa-arrow-circle-right"></i></a>
+          {% endif %}
+	      {% else %}
+  	      <a href="{{ posttype_archive }}" class="float-left"><i class="fas fa-arrow-circle-left"></i> Terug naar overzicht</a>
+  	    {% endif %}
+  	    {% if categorielink %}
+  	      <a href="{{ categorielink }}" class="float-right d-none d-md-block">Meer {{ categorie }} <i class="fas fa-arrow-circle-right"></i></a>
+  	    {% endif %}
+  	    <div class="clearfix"></div>
+	    </div>
+	  </div>
+	  {% if post.afbeelding %}
+      <div class="mod-pageheader">
+        <div class="bg" style="background-image: url({{ post.get_field('afbeelding') }}"></div>
+        <img class="overlay" src="{{ theme.link ~ '/assets/images/house-white.svg' }}" alt="image">
+      </div>
+    {% endif %}
+		<section class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<div class="container">
+			  <h1 class="text-center"> {{ post.title }} </h1>
+			  {% if posttype == 'post' %}
+          <div class="date small"> 
+            {% if post.date %}
+              <span class="published"> {{ post.date|date("d F Y") }}</span>
+            {% endif %}
+            {% if post.author %}
+              <span class="by"> door {{ post.author }} </span>
+            {% endif %}
+          </div> 
+        {% else %}
+  			  {% if post.date or post.begintijd or post.eindtijd %}
+            <div class="date"> 
+              {% if post.datum %}
+                {{ post.datum|date("d M Y") }} <br>
+              {% endif %}
+              {% if post.begintijd or post.eindtijd %}
+                {% if post.begintijd %} {{ post.begintijd|date("H:i") }} {% endif %} 
+                {% if post.eindtijd %}  
+                  {% if post.begintijd %} — {% endif %}
+                  {{ post.eindtijd|date("H:i") }}
+                {% endif %}
+              {% endif %}
+            </div> 
+          {% endif %}
+        {% endif %}
+        {% if post.blok %}
+          {% include 'partials/contenteditor.twig' %}
+        {% endif %}
+			  <div class="row">
+          <div class="col-md-10 offset-lg-1 col-lg-9 col-xl-12">
+            {{ post.content }}
+          </div>
+          <div class="col-md-10 offset-lg-1 col-lg-8 col-xl-6">
+            {% if posttype == 'locaties' or posttype == 'zaalhuur' %}
+              {% include 'partials/infobox-locaties.twig' with {'item': post} %}
+            {% endif %} 
+            {% if posttype == 'evenementen' %}
+              {% include 'partials/infobox-locaties.twig' with {'item': locatie} %}
+            {% endif %} 
+          </div>
+        </div>
+        {% if posttype == 'post' %}
+          <div class="mod-sharethis">
+            <h4> DEEL DIT {{ categorie | upper }} </h4>
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ site.link }}">
+              <img width="30" height="30" src="{{ theme.link }}/assets/images/facebook-blue.svg">
+            </a>
+            <a target="_blank" href="https://twitter.com/home?status={{ site.link }}">
+              <img width="30" height="30" src="{{ theme.link }}/assets/images/twitter-blue.svg">
+            </a>
+          </div>
+        {% endif %}
+			</div>
+		</section>
+		{% if posttype == 'zaalhuur' %}
+		  <div class="container">
+		    <div class="row">
+		      <div class="col-md-10 offset-md-10 col-lg-8 offset-lg-11 col-xl-6 offset-xl-14">
+            <a href="{{ options.info_aanvragen_link }}" class="btn btn-secondary btn-zaalhuur"> {{ options.info_aanvragen_knop_titel }} <i class="fas fa-arrow-circle-right"></i></a>
+		      </div>
+		    </div>
+		  </div>
+		{% endif %}
+		{% if post.impressie %}
+		  <section class="mod-events bgbluebar">
+    		<div class="container">
+    		  <h2 class="float-left">Impressie </h2>
+    		  <div class="clearfix"></div>
+    		  <div class="row">
+    		    <div class="col-md-18 offset-md-1">
+              <div class="cards js-slick-events">
+                {% for image in post.get_field('impressie') %}  
+                  <div class="card-wrapper">
+                    <a href="{{ TimberImage(image) }}" data-lity>
+                      <div class="card-img-top">
+                        <img class="img-fluid" src="{{ TimberImage(image) }}" alt="image">
+                      </div>
+                    </a>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+    		</div>
+  		</section>
+		{% endif %}
+		
+		{% if more|length > 0 %}
+  		<section class="mod-events bgbluebar">
+    		<div class="container">
+    		  <h2 class="float-left">Meer {{ categorie }} </h2>
+    		  <a href="{{ categorielink }}" class="btn btn-secondary float-right d-none d-md-block"> <i class="fas fa-arrow-circle-right"></i> {% if posttype == 'post' %} Toon alles {% else %} Alle {{ categorie }} {% endif %}</a>
+    		  <div class="clearfix"></div>
+          <div class="cards js-slick-events">
+            {% for blok in more %}  
+              <div class="card-wrapper">
+                <a href="{{ blok.link }}" class="card">
+                  <div class="card-img-top" style="background-image: url({{ TimberImage(blok.afbeelding)|resize(480) }})">
+                    <img class="overlay" src="{{ theme.link ~ "/assets/images/house.svg" }}" alt="image">
+                  </div>
+                  <div class="card-body">
+                    <h3> {{ blok.title }} </h3>
+                  </div>
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+    		</div>
+  		</section>
+		{% endif %}
+	</div><!-- /content-wrapper -->
+{% endblock %}

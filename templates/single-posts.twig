@@ -1,0 +1,60 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+    <div class="mod-greenbar">
+	    <div class="container">
+  	    <a href="/blog/" class="float-left"><i class="fas fa-arrow-circle-left"></i> Terug naar overzicht</a>
+  	    <div class="clearfix"></div>
+	    </div>
+	  </div>
+	  {% if post.afbeelding %}
+      <div class="mod-pageheader">
+        <div class="bg" style="background-image: url({{ post.get_field('afbeelding') }}"></div>
+        <img class="overlay" src="{{ theme.link ~ '/assets/images/house-white.svg' }}" alt="image">
+      </div>
+    {% endif %}
+		<section class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<div class="container">
+			  <h1 class="text-center"> {{ post.title }} </h1>
+        <div class="date small"> 
+          {% if post.date %}
+            {{ post.date|date("d F Y") }} <br>
+          {% endif %}
+          {% if post.author %}
+            {{ post.author }} <br>
+          {% endif %}
+        </div> 
+        {% if post.blok %}
+          {% for item in post.get_field('blok') %}
+            {% if item.acf_fc_layout == 'tekst' %}
+              <div class="tekstblok">
+                <div class="row">
+                  <div class="offset-md-2 col-md-16 offset-xl-4 col-xl-12">
+                    {{ item.tekst }}
+                  </div>
+                </div>
+              </div>
+            {% elseif item.acf_fc_layout == 'uitgelicht_groot' %}
+              <div class="uitgelicht_groot">
+                <div class="row">
+                  <div class="offset-md-1 col-md-18 offset-xl-2 col-xl-16">
+                    <h2> {{ item.tekst }} </h2>
+                  </div>
+                </div>
+              </div>
+            {% elseif item.acf_fc_layout == 'uitgelicht_klein' %}
+              <div class="uitgelicht_klein">
+                <div class="row">
+                  <div class="col-md-10 offset-md-5 offset-xl-6 col-xl-8">
+                    <h3> {{ item.tekst }} </h3>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+			</div>
+		</section>
+	</div><!-- /content-wrapper -->
+{% endblock %}

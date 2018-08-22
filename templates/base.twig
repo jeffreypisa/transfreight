@@ -1,0 +1,93 @@
+{% block html_head_container %}
+  {% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+  <body class="{{body_class}}" data-template="base.twig">
+    {% include 'mobilemenu.twig' %}
+    {% include 'partials/socialmedia-sidebar.twig' %}
+    {% include 'partials/modal-quote.twig' %}
+		<header class="header {% if fn('is_front_page') %} {% else %} on{% endif %}" >
+			{% block header %}
+			  <div class="container-fluid">
+  				<div class="logo" role="banner">
+  					<a class="logo-link" href="{{site.url}}" rel="home">
+  					  <img class="d-none d-md-block" src="{{theme.link}}/assets/images/tf_logo.svg" alt="logo" width="25" height="25">
+  					  <img class="d-block d-md-none" src="{{theme.link}}/assets/images/tf_logo_basis.svg" alt="logo" width="25" height="25">
+  					</a>
+  				</div>
+          <a id="mobilemenubtn" class="btn-menu js-menu d-block d-lg-none">
+      	    <div class="lines">
+        		  <span></span>
+              <span></span>
+              <span></span>
+      	    </div>
+          </a>
+          <ul class="menu">
+            <li>
+              <a class="btn btn-primary" data-toggle="modal" data-target="#modalquote"> <span class="d-none d-md-block"> GET </span> QUOTE </a>
+            </li>
+          </ul>
+          <div class="d-none d-lg-block">
+            {% include "menu.twig" with {'menu': menu.get_items} %}
+            <ul class="menu">
+              <li>
+                <div class="d-flex">
+                  <div class="dropdown">
+                    <a class="dropdown-toggle btn-link" id="dropdownMenuOffset" data-toggle="dropdown" data-offset="-50" aria-haspopup="true" aria-expanded="false">
+                      Services
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                      {% include "menu-fullpageslider.twig" %}
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+  		{% endblock %}
+		</header>
+
+		<div id="content" role="main" class="content-wrapper">
+			{% block content %}
+				Sorry, no content
+			{% endblock %}
+		</div>
+		{% block footer %}
+      {% include 'footer.twig' %}
+    {% endblock %}
+
+	</body>
+  {{ function('wp_footer') }}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.1/l10n/nl.js"></script>
+  
+  <script>
+    jQuery('input.js-datepicker').flatpickr(
+      {
+        dateFormat: "d/m/Y",
+        {% if lang == 'nl' %}
+          "locale": "nl"
+        {% endif %}
+      }
+    ); 
+    jQuery('input.js-timepicker').flatpickr(
+      {
+        enableTime: true,
+        noCalendar: true,
+        time_24hr: true,
+        dateFormat: "H:i"
+      }
+    );   
+    
+	
+		jQuery( document ).ready(function() {
+			jQuery(".js-now").click();    	
+		});
+	    
+  </script>
+</html>

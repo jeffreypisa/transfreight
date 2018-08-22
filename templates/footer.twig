@@ -1,0 +1,39 @@
+<div class="section footer fp-auto-height">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="footerblock">
+          <h5> Services </h5>
+          {% include "menu-fullpageslider.twig" %}
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="footerblock">
+          <h5> Algemeen </h5>
+          <nav>
+          {% include "menu.twig" with {'menu': menu.get_items} %}
+          {% include "footermenu.twig" with {'footermenu': footermenu.get_items} %}
+          </nav>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="footerblock">
+          <h5> Contact </h5>
+          {{ options.footer_contact }}
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="footerblock">
+          <h5> Volg ons </h5>
+          <div class="followus">
+            <a href="{{options.facebook}}"> <i class="fab fa-facebook-square"></i> </a>
+            <a href="{{options.linkedin}}"> <i class="fab fa-linkedin"></i> </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container"> 
+    <div class="subfooter">Copyright 2018 TransFreight Logisitcs BV    /    Site by <a href="http://www.stoerebinken.nl">Stoere Binken Design</a></div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div class="mod-greenbar">
+  </div>
+  <section class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-18 offset-md-1">
+          <h1> Blog </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-16 offset-md-2">
+          <div class="mod-filterblocks">
+            <div class="row">
+              {% for cat in category %}
+                <div class="col">
+                  <a href="/{{ cat.slug }}" class="block condensed">{{ cat.title }}</a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cards cards-archive">
+        <div class="row justify-content-center">
+          {% for blok in posts %}  
+            {% set catje = blok.terms('category') | join(' ') | lower %}
+            <div class="col-md-10 col-lg-6 col-xl-5">
+              <div class="card-wrapper nopb">
+                <a href="{{ blok.link }}" class="card">
+                  {% if blok.afbeelding %}
+                    <div class="card-img-top" style="background-image: url({{ TimberImage(blok.afbeelding)|resize(480) }})">
+                      <img class="overlay" src="{{ theme.link ~ "/assets/images/house.svg" }}" alt="image">
+                    </div>
+                  {% endif %}
+                  <div class="card-body">
+                    <div class="metadata"> {{ catje }} / {{ blok.date }} </div>
+                    <h3> {{ blok.title }} </h3>
+                  </div>
+                </a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

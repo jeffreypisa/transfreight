@@ -1,0 +1,6 @@
+{% if item.toon_knop %}
+  <a class="btn btn-primary" 
+  {% if item.knop_typelink == 'extern' %} target="_blank" {% endif %}
+  href="
+  {% if item.knop_typelink == 'intern' %} {{ item.knop_link }} {% else %} {{ item.knop_url }} {% endif %}"> {{ item.knop_naam }} </a>
+{% endif %} 

@@ -1,0 +1,66 @@
+.nf-form-cont {
+  .label-above .nf-field-element, .label-below .nf-field-element {
+    font-family: inherit;
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .nf-form-title, .nf-form-fields-required {
+    display: none;
+  }
+  .nf-error-msg {
+    color: $orange;
+  }
+  h5 {
+    margin-bottom: -5px;
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 5px;
+  }
+  .nf-field-label {
+    margin-bottom: 4px;
+    label {
+      font-size: 15px;
+      color: #7E7D7D;
+      line-height: 26px;
+      font-weight: 400;
+    }
+  }
+  .nf-field-container {
+    margin-bottom: 15px;
+  }
+  .ninja-forms-field {
+    background: $lightgrey;
+    padding: 10px 20px;
+    border: 2px solid $lightgrey;
+    border-radius: 25px;
+    font-size: 16px;
+    color: #7E7D7D;
+    transition: 0.2s ease-in-out;
+    &:focus {
+      border-color: $orange;
+      background: #fff;
+      color: #1C3D5C;
+    }
+  }
+  .nf-field-element textarea {
+    height: 140px;
+  }
+}
+
+
+
+.list-checkbox-wrap .nf-field-element li input, .list-radio-wrap .nf-field-element li input {
+  margin-top: 0.35em;
+}
+
+@include media-breakpoint-up(md) {
+  .nf-form-cont {
+    .nf-field-container {
+      margin-bottom: 20px;
+    }
+    h5 {
+     font-size: 20px;
+     line-height: 26px;
+    }
+  }
+}
