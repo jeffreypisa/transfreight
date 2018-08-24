@@ -24,7 +24,7 @@
       color: #fff;
       transition: 0.2s ease-in-out;
       &.active, &:hover, &.active:hover {
-        background: rgba(255,255,255,0.3);
+        background: rgba(255,255,255,0.1);
         text-decoration: none;
       }
     }
@@ -62,8 +62,8 @@
       a.menu-links {
         width: auto;
         &.active, &.active:hover {
-          color: $darkblue;
-          background: transparent;
+          background: rgba(255,255,255,0.3);
+          text-decoration: none;
         }
       }
     }

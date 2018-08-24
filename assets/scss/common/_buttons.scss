@@ -13,15 +13,20 @@
 .btn, .field-wrap input[type=button] {
   height: 24px;
   border-radius: 100px;
-  border: 0;
   padding: 0 14px;
   letter-spacing: 1px;
   font-size: 12px;
   line-height: 24px;
   text-transform: uppercase;
 }
+
+.btn-primary, .field-wrap input[type=button] {
+  border:0;
+}
+
 .btn-primary, .field-wrap input[type=button] {
   background: $orange;
+  border-color: $orange;
   background-image: linear-gradient(90deg, #F8B300 0%, #EF7C00 100%);
   color: #fff;
   background-size: 800% auto;

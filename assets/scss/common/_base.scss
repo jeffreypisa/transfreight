@@ -51,6 +51,10 @@ p {
   color: $grey;
 }
 
+ul, ol {
+  padding-left: 20px;
+}
+
 @include media-breakpoint-up(md) {
   h1 {
     font-size: 46px;

@@ -13,7 +13,7 @@
   {% if item.slideblok|length > 0 %}
     <div id="fullpage">
       {% for slideblok in item.slideblok %}
-        <div class="section {% if slideblok.horizontaal_sliden %} horizontal {% endif %}" data-anchor="{{ slide.menu_titel|sanitize }}">
+        <div class="section {% if slideblok.horizontaal_sliden %} horizontal {% endif %} {% if slideblok.verberg_menu %} no-menu {% endif %}" data-anchor="{{ slide.menu_titel|sanitize }}">
           <a href="#" class="fullpage-nextslide"> <img src="{{ theme.link }}/assets/images/arrow-down.svg"> </img></a>
           {% if slideblok.horizontaal_sliden %}
             <nav id="slidemenu" class="fullpage-horizontal-menu">
@@ -31,13 +31,29 @@
             {% for slide in slideblok.slide %}
               <div id="{{ slideblok.menu_titel|sanitize }}-{{ slide.menu_titel|sanitize }}" class="slide">
                 <div class="slidemenutitle d-block d-md-none">{{ slide.menu_titel }}</div>
-                <div class="fp-bg" style="background-image: url({{ slide.achtergrond }})"></div>
+                        
+                <div class="fp-bg" style="background-image: url({{ slide.achtergrond }})">
+                  {% if slide.showvideo %}
+                    <img data-src="{{ slide.achtergrond }}">
+                    <video data-autoplay muted loop>
+                      {% if slide.video_webm %}
+                    	  <source data-src="{{ slide.video_webm }}" type="video/webm" />
+                    	{% endif %}
+                    	{% if slide.video_mp4 %}
+                    	  <source data-src="{{ slide.video_mp4 }}" type="video/mp4" />
+                      {% endif %}
+                    </video>
+                  {% endif %}
+                </div>
                 <div class="container-fluid">
                   <div class="row">
-                    <div class="col-10 offset-1 col-md-6 offset-md-6">
+                    <div class="col-sm-10 offset-sm-1 col-md-6 offset-md-6">
                       <div class="content">
                         <h2 class="light"> {{ slide.titel }} </h2>
                         <p> {{ slide.tekst }}  </p>
+                        {% if slide.knop %} 
+                          <a class="btn btn-outline-light" href="{{ slide.knop_link }}"> {{ slide.knop_tekst }} </a>
+                        {% endif %}
                       </div>
                     </div>
                   </div>
@@ -48,13 +64,28 @@
             {% for slide in slideblok.slide %}
               {% if loop.first %} 
                 <div class="slide" id="{{ slide.menu_titel|sanitize }}">
-                  <div class="fp-bg" style="background-image: url({{ slide.achtergrond }})"></div>
+                  <div class="fp-bg" style="background-image: url({{ slide.achtergrond }})">
+                    {% if slide.showvideo %}
+                      <img data-src="{{ slide.achtergrond }}">
+                      <video data-autoplay muted loop>
+                        {% if slide.video_webm %}
+                      	  <source data-src="{{ slide.video_webm }}" type="video/webm" />
+                      	{% endif %}
+                      	{% if slide.video_mp4 %}
+                      	  <source data-src="{{ slide.video_mp4 }}" type="video/mp4" />
+                        {% endif %}
+                      </video>
+                    {% endif %}
+                  </div>
                   <div class="container">
                     <div class="row">
-                      <div class="col-10 offset-1 col-md-8 offset-md-2">
+                      <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2">
                         <div class="menu_titel"> {{ slideblok.menu_titel }} </div>
                         <h1> {{ slide.titel }} </h1>
                         <p> {{ slide.tekst }}  </p>
+                        {% if slide.knop %} 
+                          <a class="btn btn-outline-light" href="{{ slide.knop_link }}"> {{ slide.knop_tekst }} </a>
+                        {% endif %}
                       </div>
                     </div>
                   </div>
@@ -97,7 +128,7 @@
       		$('.section.active').find(".menu-links[data-slide='" + destination.index + "']").addClass('active');
       	},
       	afterLoad: function() {
-        	if ($('.section.active').hasClass('fp-auto-height')) {
+        	if ($('.section.active').hasClass('fp-auto-height') || $('.section.active').hasClass('no-menu')) {
           	$('.article-body > .fullpage-menu').css('left', '-200px');
           } else {
           	$('.article-body > .fullpage-menu').css('left', '15px');
