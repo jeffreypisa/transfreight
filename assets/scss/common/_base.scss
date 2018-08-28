@@ -2,7 +2,7 @@ body {
   font-family: "Roboto";
   font-weight: 400;
   font-size: 16px;
-  line-height: 26px;
+  line-height: 24px;
   color: $darkblue;
   -webkit-font-smoothing: antialiased;
 }
@@ -50,11 +50,21 @@ p + h2, p + h3, p + h4 {
 p {
   color: $grey;
 }
-
+a {
+  color: $orange;
+  &:hover {
+    color: $orange;
+  }
+  &:active, &:focus, &:target {
+    color: $orange;
+  }
+}
 ul, ol {
   padding-left: 20px;
 }
-
+.container {
+  padding: 0 20px;
+}
 @include media-breakpoint-up(md) {
   h1 {
     font-size: 46px;
@@ -76,6 +86,9 @@ ul, ol {
   h4 {
     font-size: 20px;
     line-height: 26px;  
+  }
+  .container {
+    padding: 0 30px;
   }
 }
 

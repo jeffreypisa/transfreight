@@ -15,5 +15,6 @@
     $( window ).resize(function() {
       $("body").removeClass("menuopen").removeClass("opensidemenu");
     });
+    
   });
 }(jQuery));

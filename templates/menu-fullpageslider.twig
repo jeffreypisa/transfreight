@@ -3,7 +3,7 @@
     {% if item.slideblok|length > 0 %}
       <nav class="fullpage-menu">
         {% for slideblok in item.slideblok %}
-          <a class="menu-links js-menu-close" href="/#{{ slideblok.menu_titel|sanitize }}">
+          <a class="menu-links js-menu-close" {% if slideblok.verberg_menu %} style="display:none !important" {% endif %} data-menuanchor="{{ slideblok.menu_titel|sanitize }}" href="/#{{ slideblok.menu_titel|sanitize }}">
             <span> </span>
             <div> {{ slideblok.menu_titel }} </div>
           </a>

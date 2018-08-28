@@ -18,13 +18,25 @@
   font-size: 12px;
   line-height: 24px;
   text-transform: uppercase;
+  &:focus, &:active, &:target, &:not(:disabled):not(.disabled):active {
+    color: #fff;
+    background: $orange;
+    opacity: 1;
+    border-color: $orange;
+  }
 }
 
-.btn-primary, .field-wrap input[type=button] {
-  border:0;
+.btn-outline-primary {
+  border-color: $darkblue;
+  &:hover {
+    color: #fff;
+    background: $darkblue;
+    opacity: 1;
+    border-color: $darkblue;
+  }
 }
-
 .btn-primary, .field-wrap input[type=button] {
+  border: 0;
   background: $orange;
   border-color: $orange;
   background-image: linear-gradient(90deg, #F8B300 0%, #EF7C00 100%);

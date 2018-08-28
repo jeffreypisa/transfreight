@@ -8,7 +8,7 @@
     	'page_title' => 'Options',
     	
     	/* (string) The title displayed in the wp-admin sidebar. Defaults to page_title */
-    	'menu_title' => 'Transfreight',
+    	'menu_title' => 'Thema Opties',
     	
     	/* (string) The URL slug used to uniquely identify this options page. 
     	Defaults to a url friendly version of menu_title */
@@ -16,7 +16,7 @@
     	
     	/* (string) The icon class for this menu. Defaults to default WordPress gear.
     	Read more about dashicons here: https://developer.wordpress.org/resource/dashicons/ */
-    	'icon_url' => false,
+    	'icon_url' => 'dashicons-desktop',
     	
     	/* (boolean) If set to true, this options page will redirect to the first child page (if a child page exists). 
     	If set to false, this parent page will appear alongside any child pages. Defaults to true */

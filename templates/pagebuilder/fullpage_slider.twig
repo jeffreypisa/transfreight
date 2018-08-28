@@ -2,7 +2,7 @@
   {% if item.slideblok|length > 0 %}
     <nav class="js-fullpage-menu fullpage-menu scrollspy-menu">
       {% for slideblok in item.slideblok %}
-        <a class="menu-links" data-menuanchor="{{ slideblok.menu_titel|sanitize }}" href="#{{ slideblok.menu_titel|sanitize }}">
+        <a class="menu-links" {% if slideblok.verberg_menu %} style="display:none !important" {% endif %} data-menuanchor="{{ slideblok.menu_titel|sanitize }}" href="#{{ slideblok.menu_titel|sanitize }}">
           <span> </span>
           <div> {{ slideblok.menu_titel }} </div>
         </a>
@@ -14,23 +14,23 @@
     <div id="fullpage">
       {% for slideblok in item.slideblok %}
         <div class="section {% if slideblok.horizontaal_sliden %} horizontal {% endif %} {% if slideblok.verberg_menu %} no-menu {% endif %}" data-anchor="{{ slide.menu_titel|sanitize }}">
-          <a href="#" class="fullpage-nextslide"> <img src="{{ theme.link }}/assets/images/arrow-down.svg"> </img></a>
+          <a href="#" class="fullpage-nextslide"> <span class="steel"></span> <span class="pan"><span class="left"></span><span class="right"></span></a>
           {% if slideblok.horizontaal_sliden %}
             <nav id="slidemenu" class="fullpage-horizontal-menu">
               <div class="icon d-none d-md-block">
                 <img src="{{ slideblok.horizontaal_menu_icon }}" width="70" height="70">
               </div>
-              <div class="horizontal-menu-links d-none d-md-flex flex-lg-column">
+              <div class="horizontal-menu-links d-none d-md-flex flex-lg-column align-content-lg-stretch flex-lg-wrap">
                 {% for slide in slideblok.slide %}
-                  <a data-slide="{{ loop.index0 }}" class="menu-links d-flex flex-md-fill flex-lg-stretch justify-content-center" data-menuanchor="{{ slideblok.menu_titel|sanitize }}-{{ slide.menu_titel|sanitize }}" href="#{{ slideblok.menu_titel|sanitize }}/{{ loop.index0 }}">
+                  <a data-slide="{{ loop.index0 }}" class="menu-links d-flex flex-md-fill flex-lg-stretch justify-content-center" href="#{{ slideblok.menu_titel|sanitize }}/{{ slide.menu_titel|sanitize }}">
                     <div class="align-self-center"> {{ slide.menu_titel }} </div>
                   </a>
                 {% endfor %} 
               </div>
             </nav>
             {% for slide in slideblok.slide %}
-              <div id="{{ slideblok.menu_titel|sanitize }}-{{ slide.menu_titel|sanitize }}" class="slide">
-                <div class="slidemenutitle d-block d-md-none">{{ slide.menu_titel }}</div>
+              <div data-anchor="{{ slide.menu_titel|sanitize }}" class="slide">
+                <div class="slidemenutitle d-block d-md-none">{{ slideblok.menu_titel }} > {{ slide.menu_titel }}</div>
                         
                 <div class="fp-bg" style="background-image: url({{ slide.achtergrond }})">
                   {% if slide.showvideo %}
@@ -79,7 +79,7 @@
                   </div>
                   <div class="container">
                     <div class="row">
-                      <div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2">
+                      <div class="col-10 offset-1 col-md-8 offset-md-2">
                         <div class="menu_titel"> {{ slideblok.menu_titel }} </div>
                         <h1> {{ slide.titel }} </h1>
                         <p> {{ slide.tekst }}  </p>
@@ -104,7 +104,6 @@
 <script> 
   (function($) {
     $( document ).ready(function() {
-  
     	$('#fullpage').fullpage({
     		licenseKey: '09768663-D0844610-BC968546-15A28FCB',
     		anchors: [
@@ -116,23 +115,26 @@
           {% endif %} 
         {% endfor %}],
         menu: '.js-fullpage-menu',
-    		autoScrolling:true,
+    		autoScrolling: true,
     		scrollHorizontally: true,
     		parallax: true,
     		easingcss3: 'cubic-bezier(0.420, 0.000, 0.580, 1.000)',
 				scrollingSpeed:1000,
-				normalScrollElements: '.mod-mobilemenu, .modal, .modal-dialog',
+				normalScrollElements: '.mod-mobilemenu, .modal, .modal-content, .modal-dialog',
     		parallaxKey: 'dHJhbnNmcmVpZ2h0LmVtb25rcy5ubF9iQ3ZjR0Z5WVd4c1lYZz1ZcHg=',
     		afterSlideLoad: function( section, origin, destination, direction){
       		$('.section').find(".menu-links").removeClass('active');
       		$('.section.active').find(".menu-links[data-slide='" + destination.index + "']").addClass('active');
       	},
-      	afterLoad: function() {
-        	if ($('.section.active').hasClass('fp-auto-height') || $('.section.active').hasClass('no-menu')) {
+      	afterLoad: function( origin, destination, direction ) {
+        	if ($('.section.active').hasClass('fp-auto-height') ) {
           	$('.article-body > .fullpage-menu').css('left', '-200px');
           } else {
           	$('.article-body > .fullpage-menu').css('left', '15px');
           }
+          var theanchor = destination.anchor;
+          $('.mod-mobilemenu .menu-links').removeClass('active');
+          $('.mod-mobilemenu .menu-links[data-menuanchor=' + theanchor + ']').addClass('active');
       	}
     	});
     	
@@ -141,6 +143,20 @@
     	$('.fullpage-nextslide').click(function(){
         $.fn.fullpage.moveSectionDown();
       });
+      
+      $('.modal')
+        .on('shown.bs.modal', function() {
+          $.fn.fullpage.setKeyboardScrolling(false);
+          $.fn.fullPage.setAllowScrolling(false);
+          jQuery(document).on( 'nfFormReady', function( e, layoutView ) {
+            $('#nf-field-6-wrap input').focus();
+          });
+        })
+        .on('hidden.bs.modal', function() {
+          $.fn.fullpage.setKeyboardScrolling(true);
+          $.fn.fullPage.setAllowScrolling(true);
+        });
+    
     });
   }(jQuery)); 
 </script>

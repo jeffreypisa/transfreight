@@ -6,6 +6,11 @@
         <span> Facebook </span>
       </a>
     {% endif %}
+    {% if options.linkedin %}
+      <a href="{{options.linkedin}}"> 
+        <i class="fab fa-linkedin"></i> 
+      </a>
+    {% endif %}
     {% if options.twitter %}
       <a href="{{options.twitter}}">
         <div><i class="fab fa-twitter"></i></div>
@@ -14,8 +19,14 @@
     {% endif %}
     {% if options.instagram %}
       <a href="{{options.instagram}}"> 
-        <div><i class="fas fa-envelope"></i></div>
+        <div><i class="fab fa-instagram"></i></div>
         <span> Instagram </span>
+      </a>
+    {% endif %}
+    {% if options.email %}
+      <a href="mailto:{{options.email}}"> 
+        <div><i class="fas fa-envelope"></i></div>
+        <span> Email </span>
       </a>
     {% endif %}
   </div>

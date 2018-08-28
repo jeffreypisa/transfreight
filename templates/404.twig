@@ -3,17 +3,23 @@
 {% block content %}
   <div class="content-wrapper">
 		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-      <section class="mod-pageheader section js-fullscreen d-flex align-items-center inverted">
-        <div class="bg" style="background-image: url({{ options.achtergrond404 }})"></div>
-        <div class="container">
-          <h1 class="article-h1">{{ options.titel404 }}</h1>
+      <section class="mod-pageheader d-flex align-items-center" style="background:linear-gradient(0deg, rgba(25, 95, 161, 0.6) 0%, rgba(28, 61, 92, 0.6) 100%),url({{ options.achtergrond404 }}); background-size:cover; background-position: center center;">
+        <div class="content w-100">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 offset-md-1">
+                <h1> 404 </h1>
+                <p> {{ options.titel404 }} </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <section>
         <div class="container">
           <div class="text-center">
-            <h2 class="text-center"> {{ options.tekst404 }} </h2>
-            <a href="/" class="btn btn-secondary"> {{ options.knoptekst404 }}</a>
+            {% if options.tekst404 %}<h2 class="text-center"> {{ options.tekst404 }} </h2>{% endif %}
+            <a href="/" class="btn btn-outline-primary"> {{ options.knoptekst404 }}</a>
           </div>
         </div>
       </section>

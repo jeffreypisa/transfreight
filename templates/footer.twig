@@ -1,13 +1,13 @@
 <div class="section footer fp-auto-height">
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-7 col-md-3">
         <div class="footerblock">
           <h5> Services </h5>
           {% include "menu-fullpageslider.twig" %}
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-5 col-md-3">
         <div class="footerblock">
           <h5> Algemeen </h5>
           <nav>
@@ -16,18 +16,41 @@
           </nav>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-7 col-md-3">
         <div class="footerblock">
           <h5> Contact </h5>
           {{ options.footer_contact }}
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-5 col-md-3">
         <div class="footerblock">
           <h5> Volg ons </h5>
           <div class="followus">
-            <a href="{{options.facebook}}"> <i class="fab fa-facebook-square"></i> </a>
-            <a href="{{options.linkedin}}"> <i class="fab fa-linkedin"></i> </a>
+            {% if options.facebook %}
+              <a href="{{options.facebook}}"> 
+                <i class="fab fa-facebook-square"></i> 
+              </a>
+            {% endif %}
+            {% if options.linkedin %}
+              <a href="{{options.linkedin}}"> 
+                <i class="fab fa-linkedin"></i> 
+              </a>
+            {% endif %}
+            {% if options.twitter %}
+              <a href="{{options.twitter}}">
+                <i class="fab fa-twitter"></i>
+              </a>
+            {% endif %}
+            {% if options.instagram %}
+              <a href="{{options.instagram}}"> 
+                <i class="fab fa-instagram"></i>
+              </a>
+            {% endif %}
+            {% if options.email %}
+              <a href="mailto:{{options.email}}"> 
+                <i class="fas fa-envelope"></i> 
+              </a>
+            {% endif %}
           </div>
         </div>
       </div>

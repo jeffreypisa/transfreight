@@ -28,7 +28,10 @@
   .nf-field-container {
     margin-bottom: 15px;
   }
-  .ninja-forms-field {
+  textarea, select, input:not([type=checkbox]):not([type=radio]):not([type=button]) {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     background: $lightgrey;
     padding: 10px 20px;
     border: 2px solid $lightgrey;
@@ -42,6 +45,7 @@
       color: #1C3D5C;
     }
   }
+
   .nf-field-element textarea {
     height: 140px;
   }

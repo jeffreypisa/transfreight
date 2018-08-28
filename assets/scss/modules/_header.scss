@@ -59,6 +59,12 @@ header {
           text-decoration: none;
         }
       }
+      &.current-menu-item {
+        a:not(.btn) {
+          color: $blue;
+          text-decoration: none;
+        }
+      }
       .dropdown-toggle {
         cursor:pointer;
       }
@@ -68,15 +74,28 @@ header {
         border-radius: 6px;
         min-width: 12rem;
         overflow: hidden;
+        margin-top: -40px;
+        opacity: 1;
+        transition: margin 0.2s ease-in-out, opacity 0.1s ease-in-out;
+        opacity: 0;
+        display: block;
+        visibility: hidden;
         a {
           line-height: 20px;
           color: #7E7D7D;
           padding: 10px 20px;
           font-size: 16px;
+          transition: 0.2s ease-in-out;
+          cursor: pointer;
           &:hover {
             background: $orange;
             color: #fff;
           }
+        }
+        &.show {
+          margin-top: -20px;
+          opacity: 1;
+          visibility:visible;
         }
       }
     }
