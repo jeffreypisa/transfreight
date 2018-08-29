@@ -121,7 +121,7 @@
     		easingcss3: 'cubic-bezier(0.420, 0.000, 0.580, 1.000)',
 				scrollingSpeed:1000,
 				normalScrollElements: '.mod-mobilemenu, .modal, .modal-content, .modal-dialog',
-    		parallaxKey: 'dHJhbnNmcmVpZ2h0LmVtb25rcy5ubF9iQ3ZjR0Z5WVd4c1lYZz1ZcHg=',
+    		parallaxKey: 'dHJhbnNmcmVpZ2h0LWxvZ2lzdGljcy5jb21fMXBwY0dGeVlXeHNZWGc9MUcy',
     		afterSlideLoad: function( section, origin, destination, direction){
       		$('.section').find(".menu-links").removeClass('active');
       		$('.section.active').find(".menu-links[data-slide='" + destination.index + "']").addClass('active');
@@ -147,14 +147,14 @@
       $('.modal')
         .on('shown.bs.modal', function() {
           $.fn.fullpage.setKeyboardScrolling(false);
-          $.fn.fullPage.setAllowScrolling(false);
+          $.fn.fullpage.setAllowScrolling(false);
           jQuery(document).on( 'nfFormReady', function( e, layoutView ) {
-            $('#nf-field-6-wrap input').focus();
+            $('#nf-field-6-wrap input').blur();
           });
         })
         .on('hidden.bs.modal', function() {
           $.fn.fullpage.setKeyboardScrolling(true);
-          $.fn.fullPage.setAllowScrolling(true);
+          $.fn.fullpage.setAllowScrolling(true);
         });
     
     });
